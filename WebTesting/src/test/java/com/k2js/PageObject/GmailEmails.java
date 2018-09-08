@@ -22,7 +22,9 @@ public class GmailEmails {
 		fw.withTimeout(Duration.ofSeconds(30));
 		
 		WebElement inboxEle= fw.until(ExpectedConditions.visibilityOf(driver.findElement(By.linkText("Inbox"))));
+		System.out.println("Testing commit action");
 		return inboxEle.getText();
+		
 	}
 	
 	
