@@ -46,7 +46,27 @@ public class TestingHomePage {
 		
 		Assert.assertEquals("Inbox", GE.getInboxDetails());		
 	}
-	
+	@Test
+	public void VerifyInvalidLoginPage() throws InterruptedException {
+		lp=hp.clickSignon();
+		
+		lp.PassUsername();
+		pp = lp.clickNext();
+		
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		
+		TimeUnit.SECONDS.sleep(5);
+		//GE=
+		pp.passPwwd();
+		
+		try {
+			GE= pp.clickNext();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		Assert.assertEquals("Inbox", GE.getInboxDetails());		
+	}
 	@BeforeSuite
 	public void initialSetting() {
 		//System.setProperty("webdriver.gecko.driver", ".\\EndFolders\\geckodriver.exe");
